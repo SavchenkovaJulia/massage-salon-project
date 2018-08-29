@@ -1,0 +1,52 @@
+<div class="sevices-wrap">
+  <h2 class="text-center" id="service">OUR SERVICE</h2>
+  <hr size="30" width="400">
+
+  <!-- Gallery element -->
+  <div class="container-fluid">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+      <div class="d-flex flex-column" *ngFor="let item of information">
+        <img [src]="item.imageSrc1" class="img-fluid">
+        <b data-toggle="modal" data-target="#ModalLong">{{item.title1}} &nbsp;&nbsp;>></b>
+        <img [src]="item.imageSrc2" class="img-fluid">
+        <b data-toggle="modal" data-target="#exampleModalLong2">{{item.title2}}&nbsp;&nbsp;>></b>
+
+        <!-- Modal windows -->
+        <div class="modal fade" id="ModalLong" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">{{item.title1}}</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                </button>
+              </div>
+              <div class="modal-body">
+                {{item.description1}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success">Book this service</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle2">{{item.title2}}</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                </button>
+              </div>
+              <div class="modal-body">
+                {{item.description2}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success">Book this service</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

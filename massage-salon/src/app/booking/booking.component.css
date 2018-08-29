@@ -1,0 +1,30 @@
+h2 {
+    font-family: 'Macondo', cursive;
+    padding-top: 12%;
+}
+
+.booking-wrap {
+    width: 50%;
+    margin: 0 auto;
+}
+
+form {
+    margin-top: 8%;
+    margin-bottom: 10%;
+}
+
+.btn-success {
+    margin-top: 2%;
+}
+
+.form-control:focus {
+    border-color: #5cb85c;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.mat-form-field {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 5%;
+}

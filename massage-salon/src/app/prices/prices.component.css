@@ -1,0 +1,14 @@
+.prices-wrap {
+    margin: 0 auto;
+    width: 70%;
+}
+
+h2 {
+    font-family: 'Macondo', cursive;
+    padding-top: 12%;
+}
+
+.table {
+    margin-top: 12%;
+    margin-bottom: 10%
+}

@@ -1,0 +1,16 @@
+h2 {
+    padding-top: 7%;
+    font-family: 'Macondo', cursive;
+}
+
+.staff-list-wrap {
+    margin: 0 auto;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.staff-list {
+    display: inline-block;
+}

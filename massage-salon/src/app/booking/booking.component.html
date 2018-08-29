@@ -1,0 +1,70 @@
+<div class="booking-wrap">
+    <h2 class="text-center" id="booking">Online Reservation</h2>
+    <hr size="30" width="400">
+    <form (ngSubmit)="onFormSubmit(reservationForm)" #reservationForm="ngForm">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="inputName" placeholder="Name*" [ngModel]="reservation.name" name="name" required
+                    maxlength="40">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" class="form-control" id="inputSurname" placeholder="Surname*" [ngModel]="reservation.surname" name="surname"
+                    required maxlength="40">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="email" class="form-control" id="inputEmail" placeholder="Email" [ngModel]="reservation.email" name="email" #email="ngModel"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="40">
+            </div>
+            <div class="form-group col-md-6">
+                <input type="tel" pattern="[0-9]*" minlength="10" maxlength="10" #phone="ngModel" class="form-control" id="inputPhone" placeholder="Phone Number*"
+                    [ngModel]="reservation.phone" name="phone" required>
+            </div>
+
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                <div [hidden]="!phone.hasError('minlength')">Mobile should be 10digit</div>
+                <div [hidden]="!phone.hasError('required')">Mobile is required</div>
+                <div [hidden]="!phone.hasError('pattern')">Mobile numberr should be only numbers</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="inputState">Choose Treatment*</label>
+                <select id="inputTreatment" class="form-control" [ngModel]="reservation.treatment" name="treatment" required>
+                    <option *ngFor="let item of treatment" [value]="item">{{item}}</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="inputDuration">Choose Duration*</label>
+                <select id="inputState" class="form-control" [ngModel]="reservation.duration" name="duration" required>
+                    <option *ngFor="let item of duration" [value]="item">{{item}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [ngModel]="reservation.data" name="data" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div class="form-group col-2">
+                <label for="inputState">Available Time*</label>
+                <select id="inputTime" class="form-control" [ngModel]="reservation.time" name="time" required>
+                    <option *ngFor="let item of time" [value]="item">{{item}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-5">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="4" id="comment" [ngModel]="reservation.comment" name="comment" maxlength="1000"></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!reservationForm.form.valid" (click)="onSubmit()">Submit</button>
+    </form>
+</div>
